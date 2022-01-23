@@ -133,6 +133,9 @@ public class Sistema {
             imprimirMenu();
             opcaoBanco = Integer.parseInt(scanner.nextLine());
             realizarTransacoes(opcaoBanco);
+            for (ContaPoupanca conta : contasPoupanca) {
+                conta.render(1.01);
+            }
         }
     }
 
@@ -151,7 +154,6 @@ public class Sistema {
         System.out.println("Pressione 6 para ir para configurações");
         System.out.println("Pressione 7 para sair");
     }
-
 
     /**
      * Executa as transacoes do banco
@@ -254,4 +256,5 @@ public class Sistema {
         }
         return aux;
     }
+
 }
