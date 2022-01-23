@@ -64,13 +64,14 @@ public class Sistema {
                 System.out.println("Informe a idade do cliente: ");
                 int idade = Integer.parseInt(scanner.nextLine());
                 System.out.println("Informe o CPF do cliente (apenas numeros): ");
-                int cpf = Integer.parseInt(scanner.nextLine());
+                String cpf = scanner.nextLine();
                 System.out.println("Informe o RG do cliente (apenas numeros): ");
-                int rg = Integer.parseInt(scanner.nextLine());
+                String rg = scanner.nextLine();
                 clientes.add(new Cliente(nome, idade, cpf, rg));
                 break;
 
             case 10:
+                System.out.println("\nClientes: ");
                 for (Cliente cliente : clientes) {
                     System.out.println(cliente.toString());
                 }
@@ -80,11 +81,11 @@ public class Sistema {
                 System.out.println("Informe o tipo de conta (1 - CC | 2 - CP): ");
                 int tipoDeConta = Integer.parseInt((scanner.nextLine()));
                 System.out.println("Informe o CPF do cliente (apenas numeros): ");
-                int cpfConta = Integer.parseInt(scanner.nextLine());
+                String cpfConta = scanner.nextLine();
                 System.out.println("Informe o saldo inicial: ");
-                double saldoInicial = Integer.parseInt(scanner.nextLine());
+                double saldoInicial = Double.parseDouble(scanner.nextLine());
                 for (Cliente cliente : clientes) {
-                    if (cliente.getCpf() == cpfConta) {
+                    if (cliente.getCpf().equals(cpfConta)) {
                         if (tipoDeConta == 1) {
                             contasCorrente.add(new ContaCorrente(cliente, saldoInicial));
                         }
@@ -98,11 +99,11 @@ public class Sistema {
                 break;
 
             case 20:
-                System.out.println("\nContas Correntes:\n");
+                System.out.println("\nContas Correntes: ");
                 for (ContaCorrente conta : contasCorrente) {
                     System.out.println(conta.toString());
                 }
-                System.out.println("\nContas Poupancas:\n");
+                System.out.println("\nContas Poupancas: ");
                 for (ContaPoupanca conta : contasPoupanca) {
                     System.out.println(conta.toString());
                 }
@@ -162,33 +163,33 @@ public class Sistema {
         switch (opcaoBanco) {
             case 1:
                 System.out.println("Informe o CPF do cliente (apenas numeros): ");
-                int cpfSaque = Integer.parseInt(scanner.nextLine());
+                String cpfSaque = scanner.nextLine();
                 System.out.println("Informe o tipo de conta (1 - CC | 2 - CP): ");
                 int tipoDeContaSaque = Integer.parseInt(scanner.nextLine());
                 System.out.println("Informe o do saque: ");
-                double valorSaque = Integer.parseInt(scanner.nextLine());
+                double valorSaque = Double.parseDouble(scanner.nextLine());
                 Conta contaSaque = acharConta(cpfSaque, tipoDeContaSaque).get(0);
                 contaSaque.sacar(valorSaque);
                 break;
 
             case 2:
                 System.out.println("Informe o CPF do cliente (apenas numeros): ");
-                int cpfDeposito = Integer.parseInt(scanner.nextLine());
+                String cpfDeposito = scanner.nextLine();
                 System.out.println("Informe o tipo de conta (1 - CC | 2 - CP): ");
                 int tipoDeContaDeposito = Integer.parseInt(scanner.nextLine());
                 System.out.println("Informe o valor do deposito: ");
-                double valorDeposito = Integer.parseInt(scanner.nextLine());
+                double valorDeposito = Double.parseDouble(scanner.nextLine());
                 Conta contaDeposito = acharConta(cpfDeposito, tipoDeContaDeposito).get(0);
                 contaDeposito.depositar(valorDeposito);
                 break;
 
             case 3:
                 System.out.println("Informe o CPF do cliente (apenas numeros): ");
-                int cpfPagador = Integer.parseInt(scanner.nextLine());
+                String cpfPagador = scanner.nextLine();
                 System.out.println("Informe o tipo de conta (1 - CC | 2 - CP): ");
                 int tipoDeContaPagador = Integer.parseInt(scanner.nextLine());
                 System.out.println("Informe o CPF do destinatario (apenas numeros): ");
-                int cpfDestinatario = Integer.parseInt(scanner.nextLine());
+                String cpfDestinatario = scanner.nextLine();
                 System.out.println("Informe o tipo de conta do destinatario (1 - CC | 2 - CP): ");
                 int tipoDeContaDestinatario = Integer.parseInt(scanner.nextLine());
                 System.out.println("Informe o valor da transcao: ");
@@ -199,7 +200,7 @@ public class Sistema {
 
             case 4:
                 System.out.println("Informe o CPF do cliente (apenas numeros): ");
-                int cpfSaldo = Integer.parseInt(scanner.nextLine());
+                String cpfSaldo = scanner.nextLine();
                 System.out.println("Informe o tipo de conta (1 - CC | 2 - CP): ");
                 int tipoDeContaSaldo = Integer.parseInt(scanner.nextLine());
                 Conta contaSaldo = acharConta(cpfSaldo, tipoDeContaSaldo).get(0);
@@ -208,7 +209,7 @@ public class Sistema {
 
             case 5:
                 System.out.println("Informe o CPF do cliente (apenas numeros): ");
-                int cpfExtrato = Integer.parseInt(scanner.nextLine());
+                String cpfExtrato = scanner.nextLine();
                 System.out.println("Informe o tipo de conta (1 - CC | 2 - CP): ");
                 int tipoDeContaExtrato = Integer.parseInt(scanner.nextLine());
                 Conta contaExtrato = acharConta(cpfExtrato, tipoDeContaExtrato).get(0);
@@ -238,11 +239,11 @@ public class Sistema {
      * @param tipoDeConta   tipo da conta
      * @return um array com uma conta ou vazio caso não ache a conta
      */
-    private ArrayList<Conta> acharConta (int cpf, int tipoDeConta) {
+    private ArrayList<Conta> acharConta (String cpf, int tipoDeConta) {
         ArrayList<Conta> aux = new ArrayList<>();
         if (tipoDeConta == 1) {
             for (ContaCorrente conta : contasCorrente) {
-                if (conta.getTitular().getCpf() == cpf) {
+                if (conta.getTitular().getCpf().equals(cpf)) {
                     aux.add(conta);
                 }
             }
