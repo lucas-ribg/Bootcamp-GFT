@@ -9,6 +9,9 @@ import java.time.LocalDateTime;
  */
 public abstract class Conta {
 
+    protected static int CONTADOR = 0;
+    protected static final int AGENCIA_PADRAO = 001;
+
     protected final int agencia;
     protected final int numero;
     protected final Cliente titular;
@@ -20,14 +23,12 @@ public abstract class Conta {
 
     /**
      * Cria uma conta com um saldo existente
-     * @param agencia   número da agência
-     * @param numero    número da conta
-     * @param titular   cliente titular
+     * @param titular   cliente titular da conta
      * @param saldo     saldo da conta
      */
-    public Conta(int agencia, int numero, Cliente titular, double saldo) {
-        this.agencia = agencia;
-        this.numero = numero;
+    public Conta(Cliente titular, double saldo) {
+        this.agencia = AGENCIA_PADRAO;
+        this.numero = CONTADOR++;
         this.titular = titular;
         this.saldo = saldo;
         this.dataDeAbertura = LocalDateTime.now();
@@ -35,13 +36,11 @@ public abstract class Conta {
 
     /**
      * Cria uma conta
-     * @param agencia   número da agência
-     * @param numero    número da conta
-     * @param titular   cliente titular
+     * @param titular   cliente titular da conta
      */
-    public Conta(int agencia, int numero, Cliente titular) {
-        this.agencia = agencia;
-        this.numero = numero;
+    public Conta(Cliente titular) {
+        this.agencia = AGENCIA_PADRAO;
+        this.numero = CONTADOR++;
         this.titular = titular;
         this.dataDeAbertura = LocalDateTime.now();
     }
