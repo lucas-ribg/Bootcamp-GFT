@@ -133,4 +133,16 @@ public abstract class Conta {
     public LocalDateTime getDataDeAbertura() {
         return dataDeAbertura;
     }
+
+    @Override
+    public String toString() {
+        return "Conta{" +
+                "agencia=" + agencia +
+                ", numero=" + numero +
+                ", titular=" + titular +
+                ", dataDeAbertura=" + dataDeAbertura +
+                ", saldo=" + saldo +
+                ", operacoes=" + operacoes +
+                '}';
+    }
 }
