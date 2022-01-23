@@ -6,24 +6,20 @@ public class ContaPoupanca extends Conta{
     /**
      * Cria uma conta com um saldo existente
      *
-     * @param agencia número da agência
-     * @param numero  número da conta
      * @param titular cliente titular
      * @param saldo   saldo da conta
      */
-    public ContaPoupanca(int agencia, int numero, Cliente titular, double saldo) {
-        super(agencia, numero, titular, saldo);
+    public ContaPoupanca(Cliente titular, double saldo) {
+        super(titular, saldo);
     }
 
     /**
      * Cria uma conta
      *
-     * @param agencia número da agência
-     * @param numero  número da conta
      * @param titular cliente titular
      */
-    public ContaPoupanca(int agencia, int numero, Cliente titular) {
-        super(agencia, numero, titular);
+    public ContaPoupanca(Cliente titular) {
+        super(titular);
     }
 
     /**
