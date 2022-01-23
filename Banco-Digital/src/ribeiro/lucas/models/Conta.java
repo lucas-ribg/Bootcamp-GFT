@@ -74,7 +74,7 @@ public abstract class Conta {
     }
 
     /**
-     * Transferi um valor de uma conta para outra
+     * Transfere um valor de uma conta para outra
      * @param conta conta para qual o valor será transferido
      * @param valor valor da transferência
      * @return      retorna true se realizado e false se não realizado
