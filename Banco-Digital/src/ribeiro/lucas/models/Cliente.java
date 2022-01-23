@@ -7,8 +7,8 @@ public class Cliente {
 
     private final String nome;
     private final int idade;
-    private final int cpf;
-    private final int rg;
+    private final String cpf;
+    private final String rg;
 
     /**
      * Cadastra um novo cliente
@@ -17,7 +17,7 @@ public class Cliente {
      * @param cpf       cpf do cliente
      * @param rg        rg dp cliente
      */
-    public Cliente(String nome, int idade, int cpf, int rg) {
+    public Cliente(String nome, int idade, String cpf, String rg) {
         this.nome = nome;
         this.idade = idade;
         this.cpf = cpf;
@@ -41,14 +41,14 @@ public class Cliente {
     /**
      * @return cpf do cliente
      */
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
     /**
      * @return rg do cliente
      */
-    public int getRg() {
+    public String getRg() {
         return rg;
     }
 
