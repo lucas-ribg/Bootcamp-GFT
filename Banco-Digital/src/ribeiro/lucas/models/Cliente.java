@@ -51,4 +51,14 @@ public class Cliente {
     public int getRg() {
         return rg;
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "nome='" + nome + '\'' +
+                ", idade=" + idade +
+                ", cpf=" + cpf +
+                ", rg=" + rg +
+                '}';
+    }
 }
