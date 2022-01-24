@@ -38,7 +38,7 @@ public class Sistema {
     }
 
     /**
-     * Imprimi as configurações do sistema
+     * Imprime as configurações do sistema
      */
     public void imprimirConfiguracoes(){
         System.out.println("+---------------------------------------------------+\n");
@@ -88,14 +88,17 @@ public class Sistema {
                     if (cliente.getCpf().equals(cpfConta)) {
                         if (tipoDeConta == 1) {
                             contasCorrente.add(new ContaCorrente(cliente, saldoInicial));
+                            System.out.println("Conta criada");
+                            break;
                         }
                         if (tipoDeConta == 2) {
                             contasPoupanca.add(new ContaPoupanca(cliente, saldoInicial));
+                            System.out.println("Conta criada");
+                            break;
                         }
                     }
-                    break;
+                    System.out.println("Cliente nao encontrado");
                 }
-                System.out.println("Cliente nao encontrado");
                 break;
 
             case 20:
@@ -135,13 +138,13 @@ public class Sistema {
             opcaoBanco = Integer.parseInt(scanner.nextLine());
             realizarTransacoes(opcaoBanco);
             for (ContaPoupanca conta : contasPoupanca) {
-                conta.render(1.01);
+                conta.render(0.01);
             }
         }
     }
 
     /**
-     * Imprimi o menu
+     * Imprime o menu
      */
     public static void imprimirMenu(){
         System.out.println("+---------------------------------------------------+\n");
@@ -204,7 +207,7 @@ public class Sistema {
                 System.out.println("Informe o tipo de conta (1 - CC | 2 - CP): ");
                 int tipoDeContaSaldo = Integer.parseInt(scanner.nextLine());
                 Conta contaSaldo = acharConta(cpfSaldo, tipoDeContaSaldo).get(0);
-                System.out.printf("\nSeu saldo é de: %d", contaSaldo.getSaldo());
+                System.out.println("\nSeu saldo é de: "+ contaSaldo.getSaldo());
                 break;
 
             case 5:
@@ -234,7 +237,7 @@ public class Sistema {
     }
 
     /**
-     * Acha a conta do cliente d partir do cpf e do tipo de conta
+     * Acha a conta do cliente a partir do cpf e do tipo de conta
      * @param cpf           cpf do titular da conta
      * @param tipoDeConta   tipo da conta
      * @return um array com uma conta ou vazio caso não ache a conta
