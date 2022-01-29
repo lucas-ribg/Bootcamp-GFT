@@ -20,7 +20,7 @@ public abstract class Content {
     /**
      * calculates XP
      */
-    public abstract void calculateXp();
+    public abstract double calculateXp();
 
     /**
      * Content title getter
