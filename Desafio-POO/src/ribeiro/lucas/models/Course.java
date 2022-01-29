@@ -40,9 +40,9 @@ public class Course extends Content{
     @Override
     public String toString() {
         return "Course{" +
-                "title=" + this.getTitle() +
-                "description=" + this.getDescription() +
-                "workload=" + workload +
+                " title= " + this.getTitle() +
+                " description= " + this.getDescription() +
+                " workload= " + workload +
                 '}';
     }
 }
