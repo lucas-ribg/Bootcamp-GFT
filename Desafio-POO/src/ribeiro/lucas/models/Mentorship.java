@@ -42,9 +42,9 @@ public class Mentorship extends Content{
     @Override
     public String toString() {
         return "Mentorship{" +
-                "title=" + this.getTitle() +
-                "description=" + this.getDescription() +
-                "dataDaMentoria=" + mentorshipDate +
+                " title= " + this.getTitle() +
+                " description= " + this.getDescription() +
+                " dataDaMentoria= " + mentorshipDate +
                 '}';
     }
 }
