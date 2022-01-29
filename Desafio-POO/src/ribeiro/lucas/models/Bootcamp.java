@@ -98,4 +98,19 @@ public class Bootcamp {
     public Set<Content> getBootcampContent() {
         return bootcampContent;
     }
+
+    /**
+     * @return bootcamp details
+     */
+    @Override
+    public String toString() {
+        return "Bootcamp{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", initialDate=" + initialDate +
+                ", finalDate=" + finalDate +
+                ", subscribedDevs=" + subscribedDevs +
+                ", bootcampContent=" + bootcampContent +
+                '}';
+    }
 }
