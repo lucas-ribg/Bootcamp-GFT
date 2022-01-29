@@ -7,6 +7,8 @@ public abstract class Content {
     private String title;
     private String description;
 
+    protected static final double XP_PADRAO = 10d;
+
     /**
      * Content constructor
      * @param title content title
