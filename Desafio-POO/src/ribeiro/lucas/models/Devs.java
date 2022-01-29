@@ -73,11 +73,27 @@ public class Devs {
     }
 
     /**
-     * email getter
+     * Email getter
      * @return email
      */
     public String getEmail() {
         return email;
+    }
+
+    /**
+     * Subscribed content getter
+     * @return subscribed content
+     */
+    public Set<Content> getSubscribedContent() {
+        return subscribedContent;
+    }
+
+    /**
+     * Finished content getter
+     * @return finished content
+     */
+    public Set<Content> getFinishedContent() {
+        return finishedContent;
     }
 
     /**
