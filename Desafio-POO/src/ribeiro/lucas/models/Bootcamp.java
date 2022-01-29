@@ -1,6 +1,7 @@
 package ribeiro.lucas.models;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -11,23 +12,21 @@ import java.util.Set;
 public class Bootcamp {
     private String name;
     private String description;
-    private final LocalDateTime initialDate;
+    private final LocalDateTime initialDate = LocalDateTime.now();
     private LocalDateTime finalDate;
-    private Set<Devs> subscribedDevs = new LinkedHashSet<>();
+    private Set<Devs> subscribedDevs = new HashSet<>();
     private Set<Content> bootcampContent = new LinkedHashSet<>();
 
     /**
      * Bootcamp constructor
      * @param name          bootcamp name
      * @param description   bootcamp description
-     * @param initialDate   bootcamp initial date
-     * @param finalDate     bootcamp final date
+     * @param daysToFinish  days to finish bootcamp
      */
-    public Bootcamp(String name, String description, LocalDateTime initialDate, LocalDateTime finalDate) {
+    public Bootcamp(String name, String description, int daysToFinish) {
         this.name = name;
         this.description = description;
-        this.initialDate = initialDate;
-        this.finalDate = finalDate;
+        this.finalDate = LocalDateTime.now().plusDays(daysToFinish);
     }
 
     /**
